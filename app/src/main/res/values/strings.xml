@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">मराठी उखाणे</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="SAPTAPADI_TITLE">सप्तपदी</string>
+    <string name="DOHALE_JEVAN_TITLE">डोहाळे जेवण</string>
+    <string name="GAMTIDAR_TITLE">गमतीदार उखाणे</string>
+    <string name="RUTUVAR_TITLE">ऋतुवार उखाणे</string>
+    <string name="LAGNATIL_TITLE">लग्नतील उखाणे</string>
+    <string name="PAHILA_TITLE">पहीला पहीला</string>
+    <string name="SANVAR_TITLE">सणवार</string>
+    <string name="NAVRICHE_TITLE">नवरीचे उखाणे</string>
+    <string name="NAVRYACHE_TITLE">नवरदेवाचे उखाणे</string>
+    <string name="GRUHAPRAVESH_TITLE">ग्रुहप्रवेश</string>
+    <string name="GHASS_TITLE">घास भरवणी</string>
+    <string name="ABOUT_US_TITLE">आमच्या विषयी</string>
+    <string name="CONTACT_ADDR_TITLE">संपर्क पत्ता</string>
+    <string name="CONTACT_ADDR_INFO">सचिन निरणे - snirne@gmail.com\nअमोल पाटील - patilamol.30@gmail.com\nविशाल पाटील - patilvishal121@gmail.com\nसुमित जोशी - sumitjoshi619@gmail.com</string>
+
+
+    <string-array name="UKHANE_CATEGORIES">
+        <item>@string/SAPTAPADI_TITLE</item>
+        <item>@string/DOHALE_JEVAN_TITLE</item>
+        <item>@string/GAMTIDAR_TITLE</item>
+        <item>@string/RUTUVAR_TITLE</item>
+        <item>@string/LAGNATIL_TITLE</item>
+        <item>@string/PAHILA_TITLE</item>
+        <item>@string/SANVAR_TITLE</item>
+        <item>@string/NAVRICHE_TITLE</item>
+        <item>@string/NAVRYACHE_TITLE</item>
+        <item>@string/GRUHAPRAVESH_TITLE</item>
+        <item>@string/GHASS_TITLE</item>
+        <item>@string/ABOUT_US_TITLE</item>
+    </string-array>
+
+    <string-array name="image_ids">
+        <item>@drawable/icon_1</item>
+        <item>@drawable/icon_2</item>
+        <item>@drawable/icon_3</item>
+        <item>@drawable/icon_4</item>
+        <item>@drawable/icon_5</item>
+        <item>@drawable/icon_6</item>
+        <item>@drawable/icon_7</item>
+        <item>@drawable/icon_8</item>
+        <item>@drawable/icon_9</item>
+        <item>@drawable/icon_10</item>
+        <item>@drawable/icon_11</item>
+        <item>@drawable/about_icon</item>
+    </string-array>
+    <string name="title_activity_details_ukhane">DetailsUkhaneActivity</string>
+    <string name="title_activity_ukhane_launcher">मराठी उखाणे</string>
+    <string name="title_activity_about_us">आमच्या विषयी</string>
+
+</resources>

@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#650105"
+    tools:context="easyway2in.com.marathiukhanenew.AboutUsActivity">
+
+    <include
+        android:id="@+id/headerContainer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        layout="@layout/header_home" />
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+
+>
+
+        <TextView
+            android:id="@+id/contactUsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/CONTACT_ADDR_TITLE"
+            android:focusable="false"
+            android:textStyle="italic"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:focusableInTouchMode="false" />
+
+        <TextView
+            android:id="@+id/contact_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/CONTACT_ADDR_INFO"
+            android:focusable="false"
+            android:textStyle="italic"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:focusableInTouchMode="false" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
