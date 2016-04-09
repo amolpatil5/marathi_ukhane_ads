@@ -15,36 +15,50 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+
 import java.util.ArrayList;
 
 public class MainActivity extends Activity {
     private GridView gridView;
     private GridViewAdapter gridAdapter;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         headerSettings();
+
+
+        AdView ad=(AdView)findViewById(R.id.adView);
+
+        AdRequest adRequest=new AdRequest.Builder()
+               // .addTestDevice("D5D741F489459C7E0CBA6E28CAA1D97F")
+                .build();
+        ad.loadAd(adRequest);
+        //ad.loadAd(adRequest);
 
         gridView = (GridView) findViewById(R.id.gridView);
 
         gridAdapter = new GridViewAdapter(this, R.layout.grid_item_layout, getData());
         gridView.setAdapter(gridAdapter);
 
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 ImageItem item = (ImageItem) parent.getItemAtPosition(position);
-                if(item.getTitle().equals(getResources().getString(R.string.ABOUT_US_TITLE)))
-                {
+                if (item.getTitle().equals(getResources().getString(R.string.ABOUT_US_TITLE))) {
                     Intent intent = new Intent(getApplicationContext(), AboutUsActivity.class);
                     //Start details activity
                     startActivity(intent);
 
-                }
-                else
-                {
+                } else {
                     //Create intent
                     Intent intent = new Intent(getApplicationContext(), DetailsUkhaneActivity.class);
                     intent.putExtra("CATEGORY_TITLE", item.getTitle());
@@ -55,10 +69,15 @@ public class MainActivity extends Activity {
 
 
                 }
-                            }
+
+
+            }
         });
 
+
     }
+
+
     private ArrayList<ImageItem> getData() {
         final ArrayList<ImageItem> imageItems = new ArrayList<ImageItem>();
         TypedArray imgs = getResources().obtainTypedArray(R.array.image_ids);
@@ -92,6 +111,33 @@ public class MainActivity extends Activity {
         i.putExtra(android.content.Intent.EXTRA_SUBJECT, "Marathi Ukhane");
         i.putExtra(android.content.Intent.EXTRA_TEXT, "Download application from " + "http://play.google.com/store/apps/details?id=" + getApplicationContext().getPackageName());
         startActivity(Intent.createChooser(i, "Share via"));
+
+
+    }
+
+    public void addm(View adview )
+    {
+        AdView ad=(AdView)findViewById(R.id.adView);
+        ad.loadAd(new AdRequest.Builder().build());
+        InterstitialAd end_ad=new InterstitialAd(this);
+        end_ad.setAdUnitId(getResources().getString(Integer.parseInt("ca-app-pub-7882386484143881/2202276450")));
+        end_ad.loadAd(new AdRequest.Builder().build());
+        if(end_ad.isLoaded())
+        {
+            end_ad.show();
+        }
+
+        ad=(AdView)findViewById(R.id.adView);
+       // ad.setVisibility(View.GONE);
+        ad.loadAd(new AdRequest.Builder().build());
+
+        final AdView finalAd = ad;
+        ad.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                finalAd.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
     @Override

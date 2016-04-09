@@ -1,9 +1,15 @@
+
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/image_front"
-     tools:context=".MainActivity">
+    tools:context=".MainActivity">
+
+
+
     <include
         android:id="@+id/headerContainer"
         android:layout_width="fill_parent"
@@ -11,11 +17,19 @@
         android:layout_alignParentTop="true"
         layout="@layout/header_home" />
 
+    <com.google.android.gms.ads.AdView
+
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-7882386484143881/2202276450"
+        />
     <GridView
         android:id="@+id/gridView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
         android:columnWidth="100dp"
         android:gravity="center"
         android:numColumns="auto_fit"
@@ -23,7 +37,14 @@
         android:horizontalSpacing="7dp"
         android:focusable="true"
         android:layout_below="@id/headerContainer"
-        android:clickable="true"/>
+        android:clickable="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_above="@id/adView"
+        />
+
+
 
 
 </RelativeLayout>

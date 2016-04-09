@@ -11,6 +11,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,6 +23,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class DetailsUkhaneActivity extends Activity {
+    private InterstitialAd interstitial;
 
     ViewPager viewPager;
     ViewPagerAdapter PagerAdapter;
@@ -30,6 +36,37 @@ public class DetailsUkhaneActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_ukhane);
+
+
+
+
+        interstitial = new InterstitialAd(DetailsUkhaneActivity.this);
+        interstitial.setAdUnitId("ca-app-pub-7882386484143881/3120606459");
+       // AdView adView = (AdView) this.findViewById(R.id.adView1);
+
+        // Request for Ads
+
+        AdView ad=(AdView)findViewById(R.id.adView1);
+        //This is for banner ad
+        AdView add=(AdView)findViewById(R.id.adView2);
+
+
+        AdRequest adRequest=new AdRequest.Builder()
+               //.addTestDevice("D5D741F489459C7E0CBA6E28CAA1D97F")
+                .build();
+        ad.loadAd(adRequest);
+        add.loadAd(adRequest);
+
+        // Load ads into Interstitial Ads
+        interstitial.loadAd(adRequest);
+
+        // Prepare an Interstitial Ad Listener
+        interstitial.setAdListener(new AdListener() {
+            public void onAdLoaded() {
+                // Call displayInterstitial() function
+                displayInterstitial();
+            }
+        });
 
         currentCategory = getIntent().getStringExtra("CATEGORY_TITLE");
 
@@ -83,6 +120,16 @@ JSONArray objJson=DummyResponses.getInstance(this.getApplicationContext()).getRe
         });
 
     }
+
+
+    public void displayInterstitial() {
+        // If Ads are loaded, show Interstitial else show nothing.
+        if (interstitial.isLoaded()) {
+            interstitial.show();
+        }
+    }
+
+
     private void headerSettings() {
         findViewById(R.id.btnBackHeader).setVisibility(View.GONE);
         findViewById(R.id.btnHomeHeader).setVisibility(View.VISIBLE);
